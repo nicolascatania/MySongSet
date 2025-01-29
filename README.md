@@ -11,3 +11,12 @@ The Application is designed to be used only by me, to solve my own problem, if y
 - Spring MVC.
 - RESTfull API.
 - Minimalist UI desing.
+- Automatic calculation of playlist lenght (hh-mm-ss)
+
+![General view](https://github.com/user-attachments/assets/cdd61d98-beb6-494e-b276-3c4ff6d5a6a5)
+
+
+![Searching a song with Spotify API](https://github.com/user-attachments/assets/ed1c890c-8f78-4278-8902-18e93c09d0e0)
+
+
+![Creating playlist](https://github.com/user-attachments/assets/cbd266f0-04ad-4afe-920c-5ae2a39943d5)
