@@ -1,0 +1,46 @@
+/* Variables globales */
+:root {
+    /* Fuentes */
+    --font-primary: 'Verdana','Roboto', sans-serif;
+
+    /* Colores principales */
+    --color-primary: #8b43ff;/* Violeta más oscuro */  
+    --color-primary-dark: #5706d8;  /* Violeta oscuro */
+    
+    /* Colores secundarios */
+    --color-secondary: #74C69D;  /* Verde claro */
+    --color-secondary-dark: #388E3C; /* Verde más oscuro */
+
+    /* Neutrales */
+    --color-bg: #121212;  /* Fondo oscuro (para contraste con los colores claros) */
+    --color-text: #FFFFFF;  /* Texto blanco para buen contraste sobre fondos oscuros */
+    --color-card-bg: #5706d8;
+    --color-text-black: #121212;
+    /* Estados */
+    --color-error: #F44336;  /* Rojo de error */
+    --color-warning: #FF9800;  /* Amarillo de advertencia */
+    --color-success: #4CAF50;  /* Verde para éxito */
+}
+
+
+/* Estructura de la página */
+.layout {
+    display: grid;
+    grid-template-columns: 20vw 1fr; /* Reducimos el ancho del aside al 20% */
+    grid-template-rows: calc(100vh - 64px); /* Ocupa toda la pantalla menos el header */
+    height: calc(100vh - 64px); /* Ajustar si el header tiene otro tamaño */
+  }
+  
+  app-content-display {
+    margin-top: 5px;
+    grid-column: 2 / 3;
+    grid-row: 1;
+    padding: 16px;
+    padding-top:0;
+    background-color: var(--color-bg);
+    box-sizing: border-box; 
+  }
+  
+  body{
+    background-color: var(--color-bg);
+  }

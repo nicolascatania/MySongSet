@@ -1,0 +1,12 @@
+# Ignorar dependencias locales
+mySongSetFrontEnd/node_modules
+mySongSetBackEnd/node_modules
+
+# Excluir carpetas y archivos innecesarios
+*.log
+.git
+.gitignore
+.idea
+.vscode
+dist
+build

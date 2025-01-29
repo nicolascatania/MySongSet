@@ -1,0 +1,112 @@
+.playlist-info {
+  padding-top: 10px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: var(--font-primary);
+  color: var(--color-text);
+}
+
+.playlist-info h1 {
+  color: var(--color-primary);
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.playlist-info p {
+  margin: 2px 0;
+  font-size: 15px;
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-primary);
+  height: 200px;
+}
+
+.card img {
+  height: 100%;
+  width: 40%;
+  object-fit: cover;
+  margin-left: 0;
+  border-radius: 8px;
+}
+
+.div-image {
+  height: 100%;
+  width: 40%;
+}
+
+.card .text-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--color-text);
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.header {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.playlist-without-songs {
+  color: var(--color-error);
+  font-family: var(--font-primary);
+}
+
+.button-content {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.options-button {
+  background-color: none;
+  background-color: var(--color-card-bg);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  padding-bottom: 7px;
+}
+
+.options-button:hover {
+  background-color: var(--color-primary);
+}

@@ -1,0 +1,26 @@
+<aside>
+    <div class="aside-header">
+      <h2>Playlists</h2>
+      <button title="Add new playlist" (click)="openModalToCreate()">+</button>
+    </div>
+    <ul class="playlist-list">
+      <li (click)="loadDefaultPlaylist(); markSelectedPlaylist(null)" [class.selected]="selectedPlaylistId === null">
+        All Songs
+      </li>
+      @for (playlist of playlists; track playlist.id) {
+        <li (click)="getSongsInPlaylist(playlist.id)" [class.selected]="selectedPlaylistId === playlist.id" (click)="markSelectedPlaylist(playlist.id)">
+          <span >{{ playlist.name }}</span>
+          <button title="Edit playlist" (click)="openModalToEdit(playlist)"></button>
+          <button title="Delete playlist" (click)="deletePlaylist(playlist.id)"></button>
+        </li>
+      }
+    </ul>
+    
+  </aside>
+  
+  @if(isModalOpen){
+    <app-playlist-modal [playlistToEdit]="selectedPlaylistToEdit"
+    (submitForm)="createOrUpdatePlaylist($event)"
+    (closeModalEvent)="closeModal()"></app-playlist-modal>
+
+  }

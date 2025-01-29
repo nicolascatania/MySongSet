@@ -1,0 +1,37 @@
+<div class="playlist-info">
+  <div class="header">
+    <h1>{{selectedPlaylist?.name}}</h1>
+  </div>
+  <p>{{selectedPlaylist?.duration}}</p> 
+  <p>{{selectedPlaylist?.description}}</p>
+</div>
+
+<div class="playlist-grid">
+  @if(selectedPlaylist?.songs?.length === 0){
+      <p class="playlist-without-songs">There aren't songs for this playlist, go ahead and add more with spotify services or manual add!</p>
+  }
+  @else {
+    @for(song of selectedPlaylist?.songs; track song.songId){
+      <div class="card">
+        <img src={{song.imageUrl}} alt="Imagen de álbum">
+        <div class="text-content">
+            <h3>{{song.title}}</h3>
+            <p>{{song.artist}}</p>
+            <p>{{song.album}}</p>
+            <p>{{song.duration}}</p>
+        </div>
+        <div class="button-content">
+          <button class="options-button" (click)="openModal(song)">...</button>
+        </div>
+      </div>
+      }
+  }
+</div>
+
+@if(selectedSong){
+  <app-card-modal
+    [song]="selectedSong"
+    (closeModalEvent)="closeModal()"
+    (deleteSongEvent)="deleteSong($event)" 
+  ></app-card-modal>
+}

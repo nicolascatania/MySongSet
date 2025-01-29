@@ -1,0 +1,20 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" (click)="closeModal()">×</button>
+      <div class="modal-header">
+        <img [src]="song?.imageUrl" alt="Album image" class="modal-image" />
+        <div>
+          <h1>{{ song?.title }}</h1>
+          <h3>{{ song?.artist }}</h3>
+          <p><strong>Album:</strong> {{ song?.album }}</p>
+          <p><strong>Duration:</strong> {{ song?.duration }}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="modal-footer">
+            <button class="delete-button" (click)="deleteSong()">Delete Song</button>
+          </div>          
+      </div>
+    </div>
+  </div>
+  

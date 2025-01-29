@@ -1,0 +1,56 @@
+<header>
+  <h1>MySongSet</h1>
+  <div class="header-buttons">
+    <button class="spotify-button" (click)="openSpotifySearchModal()">
+      <span>Spotify Search</span>
+    </button>
+  </div>
+</header>
+
+
+@if(isSpotifySearchModalOpen) {
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" (click)="closeSpotifySearchModal()">×</button>
+      <h2>Search for Songs</h2>
+      
+      <input [(ngModel)]="searchQuery" type="text" placeholder="Enter song name" (keyup)="onSearch()">
+      
+      @if(searchResults.length) {
+        <div>
+          <ul>
+            @for(song of searchResults; track (song.title + song.artist + song.album)) {
+              <li class="song-item">
+                <div class="song-info">
+                  <img [src]="song.imageUrl" alt="{{ song.album }}" class="album-image">
+                  <div>
+                    <h4>{{ song.title }}</h4>
+                    <p>{{ song.artist }}</p>
+                  </div>
+                </div>
+                <button class="add-to-playlist-btn" (click)="showPlaylistMenu(song.songId)">
+                  +
+                </button>
+                @if(isPlaylistMenuVisible[song.songId]){
+                  <div  class="playlist-menu">
+                    <ul>
+                      <li (click)="addToPlaylist(-1, song)">All songs</li>
+                      @for(playlist of playlists; track playlist.id) {
+                        <li (click)="addToPlaylist(playlist.id, song)">{{ playlist.name }}</li>
+                      }
+                    </ul>
+                  </div>
+                }
+              </li>
+            }
+          </ul>
+        </div>
+      }
+      @else {
+        <div class="no-songs-found">
+          <p>No songs found.</p>
+        </div>
+      }
+    </div>
+  </div>
+}

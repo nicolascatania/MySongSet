@@ -1,0 +1,15 @@
+import { Instrument } from "./Instrument";
+
+export interface songSpotifyResponse {
+    spotifySongId: String;
+    title: string;
+    artist: string;
+    album: string;
+    duration: string; // Puedes usar string o definir un tipo específico para LocalTime
+    imageUrl: string;
+    tabsUrl: string;
+    videoUrl: string;
+    isManual: boolean;
+    instruments: Instrument[]; // Relación Many-to-Many con Instrument
+  }
+  

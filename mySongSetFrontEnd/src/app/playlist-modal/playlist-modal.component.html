@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-overlay">
+      <div class="modal-content">
+        <h3 class="modal-header">
+          {{ playlistToEdit ? 'Edit Playlist' : 'Create Playlist' }}
+        </h3>
+        <div class="form-controls">
+          <label>
+            Playlist name:
+            <input
+              type="text"
+              formControlName="name"
+              placeholder="Enter playlist name"
+            />
+          </label>
+          @if (form.get('name')?.touched && form.get('name')?.invalid) {
+          <div>
+            @if (form.get('name')?.errors?.['required']) {
+            <p class="error">Name is required.</p>
+            }
+            @if (form.get('name')?.errors?.['maxlength']) {
+            <p class="error">Name must be less than 30 characters.</p>
+            }
+          </div>
+          }
+  
+          <label>
+            Playlist description:
+            <textarea
+              formControlName="description"
+              placeholder="Enter playlist description"
+            ></textarea>
+          </label>
+          @if (form.get('description')?.touched && form.get('description')?.invalid) {
+          <div>
+            @if (form.get('description')?.errors?.['required']) {
+            <p class="error">Description is required.</p>
+            }
+            @if (form.get('description')?.errors?.['maxlength']) {
+            <p class="error">Description must be less than 200 characters.</p>
+            }
+          </div>
+          }
+        </div>
+  
+        <div class="modal-buttons">
+          <button
+            type="submit"
+            class="modal-button confirm"
+            [disabled]="form.invalid"
+          >
+            {{ playlistToEdit ? 'Update Playlist' : 'Create Playlist' }}
+          </button>
+          <button
+            type="button"
+            class="modal-button cancel"
+            (click)="cancel()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  

@@ -1,0 +1,44 @@
+services:
+  backend:
+    build:
+      context: ./mySongSetBackend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: database
+      DB_NAME: mySongSetDB
+      DB_PORT: 5432
+      DB_USERNAME: admin
+      DB_PASSWORD: admin
+      SPOTIFY_API_URL: https://api.spotify.com/v1
+      SPOTIFY_API_AUTH: https://accounts.spotify.com/api/token
+      SPOTIFY_CLIENT_ID: 7621bc1e99ad43faa46c501fd8b4b1d9
+      SPOTIFY_CLIENT_SECRET: 9f77e2d933294017b92e738e5c9aead3
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./mySongSetFrontEnd
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+    image: nginx:alpine
+    volumes:
+      - ./mySongSetFrontEnd/dist/mySongSetFrontEnd:/usr/share/nginx/html
+
+
+  database:
+    image: postgres:15
+    container_name: postgres_container
+    restart: always
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: mySongSetDB
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
